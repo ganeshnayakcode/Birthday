@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ========== PAGE 1: INTRO ========== */
+.intro-page {
+  background: url('images/bg2.jpg') no-repeat center center/cover;
+  height: 150vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-overlay {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  border-radius: 25px;
+  color: white;
+  animation: fadeIn 2s ease-in;
+}
+
+.birthday-title {
+  font-size: 3rem;
+  text-shadow: 0 0 30px #ff99cc;
+}
+
+.birthday-subtitle {
+  margin: 15px 0 30px;
+  font-size: 1.3rem;
+}
+
+.glow-btn {
+  background-color: #ff66b3;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff66b3;
+  animation: pulse 2s infinite;
+}
+
+.glow-btn:hover {
+  transform: scale(1.1);
+  background-color: #ff3385;
+}
+
+/* Floating Balloons */
+#balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* ========== PAGE 2: GALLERY ========== */
+.gallery-page {
+  background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #ff3385;
+  margin-bottom: 30px;
+  text-shadow: 0 0 15px #ff99cc;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px #ff99cc;
+}
+
+/* ========== PAGE 3: VIDEO ========== */
+.video-page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.video-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('images/bg1.jpg') no-repeat center center/cover;
+  filter: blur(9px);          /* adjust blur strength */
+  transform: scale(1.1);       /* avoid edge cutoff */
+  z-index: -1;                 /* keep behind content */
+}
+
+
+.video-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.birthday-video {
+margin-top: 0px;
+  width: 700px;              /* fixed width */
+  height: 500px;             /* same as width → perfect square */
+  display: block;            /* centers using margin auto */
+  margin: 40px auto;         /* center vertically with space */
+  border-radius: 20px;
+  box-shadow: 0 0 30px #ff66b3;
+  object-fit: cover;         /* ensures video fills square properly */
+}
+
+
+
+
+.wish-title {
+  font-size: 2.5rem;
+  text-shadow: 0 0 25px #ff66b3;
+}
+
+.wish-text {
+  font-size: 1.3rem;
+  margin-top: 15px;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px #ff66b3; }
+  50% { box-shadow: 0 0 30px #ff66b3; }
+}
+
+@keyframes balloonFloat {
+  0% { transform: translateY(100vh) scale(0.8); }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+.balloon {
+  position: absolute;
+  bottom: -10%;
+  border-radius: 50%;
+  width: 40px;
+  height: 60px;
+  background: pink;
+  animation: balloonFloat 7s linear infinite;
+}
